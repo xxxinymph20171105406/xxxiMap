@@ -40,7 +40,7 @@ public class Photo {
 				}
 				if(tagName.equals("Date/Time Original")) {
 					System.out.println("拍摄时间： " + info);
-					JOptionPane.showMessageDialog(null, "拍摄时间:" + info);
+					//JOptionPane.showMessageDialog(null, "拍摄时间:" + info);
 				}
 				if(tagName.equals("GPS Latitude")) {
 					System.out.println("纬度：" + info);
