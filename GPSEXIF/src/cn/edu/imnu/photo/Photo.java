@@ -1,6 +1,8 @@
 package cn.edu.imnu.photo;
 
+
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
@@ -45,18 +47,46 @@ public class Photo {
 				if(tagName.equals("GPS Latitude")) {
 					System.out.println("纬度：" + info);
 					//JOptionPane.showMessageDialog(null, "纬度:" + info);
+					System.out.println("经度：" + pointToLatlong(info));
 				}
 				if(tagName.equals("GPS Longitude")) {
 					System.err.println("经度： " + info);
 					//JOptionPane.showMessageDialog(null, "经度:" + info);
+					System.out.println("经度：" + pointToLatlong(info));
 				}
 				if(tagName.equals("Model")) {
 					System.out.println("型号： " + info);
+					
 				}
 				
 			}
 		}
 		
 	}
+	public static String pointToLatlong (String point ) {
+		Double du = Double.parseDouble(point.substring(0, point.indexOf("°")).trim());  
+		Double fen = Double.parseDouble(point.substring(point.indexOf("°")+1, point.indexOf("'")).trim());  
+		Double miao = Double.parseDouble(point.substring(point.indexOf("'")+1, point.indexOf("\"")).trim());  
+	    Double duStr = du + fen / 60 + miao / 60 / 60 ;  
+		return duStr.toString();  
+		
+	
+				
+		
+		
+		
+	}
+		
+		
+	public void createFile()throws IOException{
+		File file = new File("‪C:\\Users\\hp\\Desktop\\java\\photo.txt");
+		String data  = ;
+		
+	}
+	
+
+	
+	
+	
 }  
 	
