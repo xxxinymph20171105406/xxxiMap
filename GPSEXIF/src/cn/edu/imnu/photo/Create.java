@@ -11,6 +11,8 @@ import java.io.PrintWriter;
 import java.io.Writer;
 
 public class Create {
+	
+
 	/*private static String path = "C:\\Users\\hp\\Desktop\\java" ;
 	
 	private static String filenameTemp;
@@ -112,13 +114,13 @@ public class Create {
 		return bool;
 		
 	}*/
-public void createFile()throws IOException{
-	String filepath = "C:\\Users\\hp\\Desktop\\java";
-	File dir = new File(filepath);
-	if(!dir.exists()) {
-		dir.mkdirs();
-	}
-	
+	public void createFile()throws IOException{
+		String filepath = "C:\\Users\\hp\\Desktop\\java";
+		File dir = new File(filepath);
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
+		
 		File checkFile = new File(filepath + "/filename.txt");
 		FileWriter writer = null;
 	try {	
@@ -135,12 +137,14 @@ public void createFile()throws IOException{
 		if(null != writer)
 			writer.close();
 	}
-	
-	
-	
-	
-	
+	System.out.println("your content");
+		
+	}
+
 	
 }
 
-}
+	
+	
+
+

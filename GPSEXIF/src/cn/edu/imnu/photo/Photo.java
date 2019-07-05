@@ -16,12 +16,13 @@ import com.drew.metadata.Tag;
 
 public class Photo {
 	public static void main(String[] args) throws Exception, Exception{
-		File file = new File("C:\\Users\\hp\\Desktop\\java\\meal.jpg");
+		File file = new File("C:\\Users\\hp\\Desktop\\java\\house.jpg");
 		System.out.println("File Name: " + file.getName());
 		printImageTags(file);
 	}
 	private static void printImageTags(File file) throws ImageProcessingException ,Exception{
 		Metadata metadata = ImageMetadataReader.readMetadata(file);
+		
 		for(Directory directory : metadata.getDirectories()){
 			for(Tag tag : directory.getTags()) {
 				String tagName = tag.getTagName();
@@ -45,14 +46,14 @@ public class Photo {
 					//JOptionPane.showMessageDialog(null, "拍摄时间:" + info);
 				}
 				if(tagName.equals("GPS Latitude")) {
-					System.out.println("纬度：" + info);
+					//System.out.println("纬度：" + info);
 					//JOptionPane.showMessageDialog(null, "纬度:" + info);
 					System.out.println("经度：" + pointToLatlong(info));
 				}
 				if(tagName.equals("GPS Longitude")) {
-					System.err.println("经度： " + info);
+					//System.err.println("经度： " + info);
 					//JOptionPane.showMessageDialog(null, "经度:" + info);
-					System.out.println("经度：" + pointToLatlong(info));
+					System.out.println("纬度：" + pointToLatlong(info));
 				}
 				if(tagName.equals("Model")) {
 					System.out.println("型号： " + info);
@@ -76,13 +77,10 @@ public class Photo {
 		
 		
 	}
+	
 		
 		
-	public void createFile()throws IOException{
-		File file = new File("‪C:\\Users\\hp\\Desktop\\java\\photo.txt");
-		String data  = ;
-		
-	}
+	
 	
 
 	

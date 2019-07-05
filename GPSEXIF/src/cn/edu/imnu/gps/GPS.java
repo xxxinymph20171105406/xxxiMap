@@ -14,8 +14,8 @@ import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-public class GPS {
-	static String AK = "VUR55hBFz2tmn6IFDkHbaZh0V0iLgnQZ"; // 百度地图密钥
+/*public class GPS {
+	//static String AK = "VUR55hBFz2tmn6IFDkHbaZh0V0iLgnQZ"; // 百度地图密钥
 
     public static void main(String[] args) {
         String dom = "北京王府井";
@@ -62,4 +62,4 @@ public class GPS {
 
 
     
-}
+}*/
