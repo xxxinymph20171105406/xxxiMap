@@ -20,8 +20,8 @@
 	// 百度地图API功能
 	var map = new BMap.Map("allmap");
 	map.centerAndZoom(new BMap.Point(111.41, 40.48), 15);
-	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+	map.enableScrollWheelZoom();   
+	map.enableContinuousZoom();    
 	var bounds = null;
 	var linesPoints = null;
 	var spoi1 = new BMap.Point(111.66,40.81);    // 起点1
@@ -33,7 +33,7 @@
 		linesPoints = new Array();
 		map.clearOverlays();                                                    // 清空覆盖物
 		var driving3 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  // 步行实例,并设置回调
-			driving3.search(spoi1, spoi2);                                       // 搜索一条线路
+			driving3.search(spoi1, epoi);                                       // 搜索一条线路
 		var driving4 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  // 步行实例,并设置回调
 			driving4.search(spoi2, epoi);                                       // 搜索一条线路
 	}
@@ -79,11 +79,11 @@
 				var d = 25;
 				var cha = 0;
 				var jia = 0
-				/*if(index == 2){
+				if(index == 2){
 					d = 21;
 					cha = 5;
 					jia = 1;
-				}*/
+				}
 				myIcon = new BMap.Icon(url,new BMap.Size(width, d),{offset: new BMap.Size(10, (11 + jia)),imageOffset: new BMap.Size(0, 0 - index * height - cha)});
 			}
 			
