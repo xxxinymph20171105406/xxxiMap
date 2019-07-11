@@ -27,11 +27,11 @@ public class Photo {
 			for(Tag tag : directory.getTags()) {
 				String tagName = tag.getTagName();
 				String info = tag.getDescription();
-				if(tagName.equals("Exif Image Height")) {
+				if(tagName.equals("EXIF Image Height")) {
 					System.out.println("图片高度 ： " + info);
 				    //JOptionPane.showMessageDialog(null, "图片高度:" + info);
 				} 
-				if(tagName.equals("Exif Image Width")) {
+				if(tagName.equals("EXIF Image Width")) {
 					System.out.println("图片宽度： " + info);
 					//JOptionPane.showMessageDialog(null, "图片宽度:" + info);
 				}

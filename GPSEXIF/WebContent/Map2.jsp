@@ -24,37 +24,26 @@
 	map.enableContinuousZoom();    
 	var bounds = null;
 	var linesPoints = null;
-	var spoi1 = new BMap.Point(111.66,40.81);    // 起点1
-	var spoi2 = new BMap.Point(111.77452777777778,40.4889);    // 起点2
-	var epoi  = new BMap.Point(111.78212777777777,40.49297222222222);    // 终点
-	//var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/Mario.png", new BMap.Size(32, 70), {imageOffset: new BMap.Size(0, 0)});
+	var spoi1 = new BMap.Point(111.66,40.81);    // 点1
+	var spoi2 = new BMap.Point(111.77452777777778,40.4889);    // 点2
+	var epoi  = new BMap.Point(111.78212777777777,40.49297222222222);    // 点3
 	function initLine(){
 		bounds = new Array();
 		linesPoints = new Array();
-		map.clearOverlays();                                                    // 清空覆盖物
-		var driving3 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  // 步行实例,并设置回调
-			driving3.search(spoi1, epoi);                                       // 搜索一条线路
-		var driving4 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  // 步行实例,并设置回调
-			driving4.search(spoi2, epoi);                                       // 搜索一条线路
+		map.clearOverlays();                                                    
+		var driving3 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  
+			driving3.search(spoi1, spoi2);                                       
+		var driving4 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  
+			driving4.search(spoi2, epoi);                                       
 	}
 	function run(){
 		for(var m = 0;m < linesPoints.length; m++){
 			var pts = linesPoints[m];
 			var len = pts.length;
-			//var carMk = new BMap.Marker(pts[0],{icon:myIcon});
-			//map.addOverlay(carMk);
-			//resetMkPoint(1,len,pts,carMk)
+		
 		}
 		
-		/*function resetMkPoint(i,len,pts,carMk){
-			carMk.setPosition(pts[i]);
-			if(i < len){
-				setTimeout(function(){
-					i++;
-					resetMkPoint(i,len,pts,carMk);
-				},100);
-			}
-		}*/
+	
 		
 	}
 	function drawLine(results){
@@ -66,7 +55,7 @@
 			var width;
 			var height
 			var myIcon;
-			// imgType:1的场合，为起点和终点的图；2的场合为车的图形
+			// imgType:1的场合，为起点和终点的图；
 			if(imgType == 1){
 				url = "http://lbsyun.baidu.com/jsdemo/img/dest_markers.png";
 				width = 42;
@@ -103,17 +92,17 @@
 				b.push(points[i]);
 			}
 		}	
-		// 绘制驾车步行线路
+		// 绘制线路
 		for (var i = 0; i < planObj.getNumRoutes(); i ++){
 			var route = planObj.getRoute(i);
 			if (route.getDistance(false) <= 0){continue;}
 			addPoints(route.getPath());
-			// 驾车线路
+			// 线路
 	
 			if(route.getRouteType() == BMAP_ROUTE_TYPE_DRIVING){
 				map.addOverlay(new BMap.Polyline(route.getPath(), {strokeColor: "#0030ff",strokeOpacity:opacity,strokeWeight:6,enableMassClear:true}));
 			}else{
-			// 步行线路有可能为0
+			// 线路有可能为0
 				map.addOverlay(new BMap.Polyline(route.getPath(), {strokeColor: "#30a208",strokeOpacity:0.75,strokeWeight:4,enableMassClear:true}));
 			}
 		}	
